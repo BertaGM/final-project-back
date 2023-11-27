@@ -1,10 +1,16 @@
+import "dotenv/config";
+import debugCreator from "debug";
+import chalk from "chalk";
 import express from "express";
 
+const debug = debugCreator("src:nerdmas:server:app");
+
 const app = express();
+app.disable("x-powered-by");
 
 export const startServer = (port: number) => {
   app.listen(port, () => {
-    // Mensaje para cuando se ha levantado 👋
+    debug(chalk.bgBlueBright(`Server listening on http://localhost:${port}`));
   });
 };
 
