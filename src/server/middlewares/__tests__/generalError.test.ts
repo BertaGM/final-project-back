@@ -63,7 +63,7 @@ describe("Given a generalError middleware", () => {
       );
 
       const errorResponseBody = {
-        message: errorMessage,
+        error: errorMessage,
       };
 
       expect(res.json).toHaveBeenCalledWith(
