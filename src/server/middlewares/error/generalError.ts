@@ -1,7 +1,6 @@
 import chalk from "chalk";
 import debugCreator from "debug";
 import type { NextFunction, Request, Response } from "express";
-import { debug } from "console";
 import CustomError from "../../CustomError/CustomError";
 
 export const notFound = (_req: Request, _res: Response, next: NextFunction) => {
@@ -19,8 +18,6 @@ export const generalError = (
   _next: NextFunction,
 ) => {
   const statusCode = error.statusCode ?? 500;
-  const privateMessage = error.customMessage ?? error.message;
-  debug(chalk.redBright("Error", privateMessage));
 
-  res.status(statusCode).json({ error: privateMessage });
+  res.status(statusCode).json({ error: error.message });
 };
