@@ -66,9 +66,7 @@ describe("Given a generalError middleware", () => {
         error: errorMessage,
       };
 
-      expect(res.json).toHaveBeenCalledWith(
-        expect.objectContaining(errorResponseBody),
-      );
+      expect(res.json).toHaveBeenCalledWith(errorResponseBody);
     });
   });
 });
