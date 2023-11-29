@@ -4,7 +4,7 @@ import BallsController from "../BallsController";
 import type { BallsRepository } from "../../repository/types";
 import mockBalls from "../../mocks/mockBalls";
 
-describe("Given a NerdmasController getNerdmas method", () => {
+describe("Given a BallsController getBalls method", () => {
   describe("When it receives a response", () => {
     const expectedStatusCode = 200;
     const balls: BallsStructure[] = mockBalls;
@@ -26,13 +26,7 @@ describe("Given a NerdmasController getNerdmas method", () => {
       expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
     });
 
-    test("Then it should call its method with state code 200", async () => {
-      await ballsController.getBalls(req as Request, res as Response);
-
-      expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
-    });
-
-    test("Then it should call its method with 'Harry Potter crew' and 'My neighbor Totoro'", async () => {
+    test("Then it should call its method with 'Harry Potter crew' and 'My neighbor Totoro' balls", async () => {
       const expectedBalls = balls;
 
       await ballsController.getBalls(req as Request, res as Response);
