@@ -3,6 +3,7 @@ import debugCreator from "debug";
 import chalk from "chalk";
 import { startServer } from "./server/app.js";
 import connectToDatabase from "./database/index.js";
+import "./server/index.js";
 
 const debug = debugCreator("src:nerdmas:main");
 
