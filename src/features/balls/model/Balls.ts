@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
-import type { NerdmasStructure } from "../types.js";
+import type { BallsStructure } from "../types.js";
 
-const nerdmasSchema = new Schema<NerdmasStructure>({
+const ballsSchema = new Schema<BallsStructure>({
   ballName: {
     type: String,
     required: true,
@@ -40,6 +40,6 @@ const nerdmasSchema = new Schema<NerdmasStructure>({
   },
 });
 
-const Nerdmas = model("Nerdmas", nerdmasSchema, "nerdmas");
+const Balls = model("Balls", ballsSchema, "balls");
 
-export default Nerdmas;
+export default Balls;

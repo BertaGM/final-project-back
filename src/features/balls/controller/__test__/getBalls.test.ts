@@ -1,17 +1,18 @@
 import type { Request, Response } from "express";
-import { type NerdmasRepository, type NerdmasStructure } from "../../types";
-import NerdmasController from "../NerdmasController";
-import mockNerdmas from "../../mocks/mockNerdmas";
+import { type BallsStructure } from "../../types";
+import BallsController from "../BallsController";
+import type { BallsRepository } from "../../repository/types";
+import mockBalls from "../../mocks/mockBalls";
 
 describe("Given a NerdmasController getNerdmas method", () => {
   describe("When it receives a response", () => {
     const expectedStatusCode = 200;
-    const nerdmas: NerdmasStructure[] = mockNerdmas;
-    const nerdmasRepository: NerdmasRepository = {
-      getNerdmas: jest.fn().mockResolvedValue(nerdmas),
+    const balls: BallsStructure[] = mockBalls;
+    const ballsRepository: BallsRepository = {
+      getBalls: jest.fn().mockResolvedValue(balls),
     };
 
-    const nerdmasController = new NerdmasController(nerdmasRepository);
+    const ballsController = new BallsController(ballsRepository);
 
     const req = {};
     const res: Pick<Response, "status" | "json"> = {
@@ -20,23 +21,23 @@ describe("Given a NerdmasController getNerdmas method", () => {
     };
 
     test("Then it should call its method with a status code 200", async () => {
-      await nerdmasController.getNerdmas(req as Request, res as Response);
+      await ballsController.getBalls(req as Request, res as Response);
 
       expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
     });
 
     test("Then it should call its method with state code 200", async () => {
-      await nerdmasController.getNerdmas(req as Request, res as Response);
+      await ballsController.getBalls(req as Request, res as Response);
 
       expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
     });
 
     test("Then it should call its method with 'Harry Potter crew' and 'My neighbor Totoro'", async () => {
-      const expectedNerdmas = nerdmas;
+      const expectedBalls = balls;
 
-      await nerdmasController.getNerdmas(req as Request, res as Response);
+      await ballsController.getBalls(req as Request, res as Response);
 
-      expect(res.json).toHaveBeenLastCalledWith({ nerdmas: expectedNerdmas });
+      expect(res.json).toHaveBeenLastCalledWith({ balls: expectedBalls });
     });
   });
 });

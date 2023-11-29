@@ -1,6 +1,6 @@
 import request from "supertest";
-import app from "../../../server/app";
-import "../../../server/index";
+import app from "../../../../server/app";
+import "../../../../server/index";
 
 describe("Given a GET method a '/' endpoint", () => {
   describe("When it receives a request", () => {
