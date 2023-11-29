@@ -6,8 +6,8 @@ import { generalError, notFound } from "./middlewares/error/generalError.js";
 import pingRouter from "../features/ping/router/pingRouter.js";
 import ballsRouter from "../features/balls/router/ballsRouter.js";
 
-const corsPort = process.env.ALLOWED_ORIGIN;
-const corsOption = { origin: corsPort };
+const corsConcentedPort = process.env.ALLOWED_ORIGIN;
+const corsOption = { origin: corsConcentedPort };
 
 app.use(cors(corsOption));
 app.use(morgan("dev"));
