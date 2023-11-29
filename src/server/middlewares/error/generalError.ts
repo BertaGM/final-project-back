@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import debugCreator from "debug";
 import type { NextFunction, Request, Response } from "express";
-import CustomError from "../../CustomError/CustomError";
+import CustomError from "../../CustomError/CustomError.js";
 
 export const notFound = (_req: Request, _res: Response, next: NextFunction) => {
   const debug = debugCreator("src:nerdmas:server:middlewares:error");
