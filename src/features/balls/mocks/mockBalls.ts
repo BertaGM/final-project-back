@@ -1,6 +1,6 @@
-import type { NerdmasStructure } from "../types.js";
+import type { BallsStructure } from "../types.js";
 
-const mockNerdmas: NerdmasStructure[] = [
+const mockBalls: BallsStructure[] = [
   {
     _id: "656241b0c4ddfcae991f0b13",
     ballName: "Harry Potter crew",
@@ -28,4 +28,4 @@ const mockNerdmas: NerdmasStructure[] = [
   },
 ];
 
-export default mockNerdmas;
+export default mockBalls;
