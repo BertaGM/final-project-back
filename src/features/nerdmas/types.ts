@@ -1,4 +1,4 @@
-export interface NerdmasData {
+export interface NerdmasStructure {
   _id: string;
   ballName: string;
   isAvailable: boolean;
@@ -12,5 +12,5 @@ export interface NerdmasData {
 }
 
 export interface NerdmasRepository {
-  getNerdmas: () => Promise<NerdmasData[]>;
+  getNerdmas: () => Promise<NerdmasStructure[]>;
 }
