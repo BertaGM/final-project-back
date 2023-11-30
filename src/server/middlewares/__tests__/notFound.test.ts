@@ -2,7 +2,7 @@ import request from "supertest";
 import app from "../../app";
 import "../../../server/index.js";
 
-describe("Given a GET /nerdmas endpoint", () => {
+describe("Given a GET /balls endpoint", () => {
   describe("When it receives a request", () => {
     test("Then it should response with a status code 404 and a message 'Endpoint not found'", async () => {
       const expectedStatusCode = 404;
