@@ -8,5 +8,6 @@ module.exports = {
     "**/*.{ts,tsx}",
     "!**/node_modules/**",
     "!**/src/index.ts",
+    "!src/setupTest.ts",
   ],
 };
