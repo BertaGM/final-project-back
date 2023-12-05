@@ -8,6 +8,14 @@ class BallsMongooseRepository implements BallsRepository {
 
     return balls;
   }
+
+  public async deleteBall(ballId: string): Promise<void> {
+    try {
+      await Balls.findByIdAndDelete(ballId);
+    } catch (error) {
+      throw new Error("Error deleting this ball" + (error as Error).message);
+    }
+  }
 }
 
 export default BallsMongooseRepository;
