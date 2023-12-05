@@ -3,7 +3,7 @@ import debugCreator from "debug";
 import chalk from "chalk";
 import express from "express";
 
-const debug = debugCreator("src:nerdmas:server:app");
+const debug = debugCreator("src:balls:server:app");
 
 const app = express();
 app.disable("x-powered-by");
