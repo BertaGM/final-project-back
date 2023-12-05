@@ -9,4 +9,6 @@ const ballsController = new BallsController(ballsMongooseRepository);
 
 ballsRouter.get("/", ballsController.getBalls);
 
+ballsRouter.delete("/:ballId", ballsController.deleteBall);
+
 export default ballsRouter;
