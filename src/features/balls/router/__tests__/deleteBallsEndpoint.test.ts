@@ -21,7 +21,7 @@ describe("Given a DELETE/balls endpoint", () => {
   describe("When it receives an invalida request", () => {
     test("Then it should respond with a status code 400 and the message error 'Error deleting this Ball'", async () => {
       const expectedStatusCode = 400;
-      const expectErrorMessage = "Error deleting this Ball";
+      const expectErrorMessage = "Error deleting this ball";
       const invalidPath = `/balls/${mockBalls[0]._id}gh5`;
 
       const response = await request(app)
