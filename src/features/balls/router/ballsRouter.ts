@@ -11,4 +11,6 @@ ballsRouter.get("/", ballsController.getBalls);
 
 ballsRouter.delete("/:ballId", ballsController.deleteBall);
 
+ballsRouter.patch("/", ballsController.modifyIsTengui);
+
 export default ballsRouter;
