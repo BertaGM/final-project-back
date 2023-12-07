@@ -1,4 +1,4 @@
-import type { BallsStructure } from "../types";
+import type { BallStructureWithoutId, BallsStructure } from "../types";
 
 export interface BallsRepository {
   getBalls: () => Promise<BallsStructure[]>;
@@ -7,4 +7,5 @@ export interface BallsRepository {
     ballId: string,
     ballIsTengui: boolean,
   ) => Promise<void | BallsStructure>;
+  addBall: (ball: BallStructureWithoutId) => Promise<BallsStructure>;
 }
