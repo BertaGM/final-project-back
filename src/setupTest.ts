@@ -6,16 +6,7 @@ import "./server/index";
 
 export let server: MongoMemoryServer;
 
-const serverConnection = async () => {
-  try {
-    server = await MongoMemoryServer.create();
-  } catch {
-    await MongoMemoryServer.create();
-  }
-};
-
 beforeAll(async () => {
-  await serverConnection();
   server = await MongoMemoryServer.create();
   const mongoUrl = server.getUri();
   await connectToDatabase(mongoUrl);
