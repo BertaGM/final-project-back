@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import connectToDatabase from "./database";
 import "./server/index";
 
-let server: MongoMemoryServer;
+export let server: MongoMemoryServer;
 
 const serverConnection = async () => {
   try {

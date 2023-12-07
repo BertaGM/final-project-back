@@ -1,5 +1,5 @@
 import Balls from "../model/Balls.js";
-import { type BallsStructure } from "../types.js";
+import { type BallStructureWithoutId, type BallsStructure } from "../types.js";
 import type { BallsRepository } from "./types.js";
 
 class BallsMongooseRepository implements BallsRepository {
@@ -17,6 +17,16 @@ class BallsMongooseRepository implements BallsRepository {
     }
   }
 
+  public async addBall(ball: BallStructureWithoutId): Promise<BallsStructure> {
+    try {
+      const newBall = await Balls.create(ball);
+
+      return newBall;
+    } catch (error) {
+      throw new Error("Error adding a new Ball" + (error as Error).message);
+    }
+  }
+
   public async modifyIsTengui(
     ballId: string,
     isTengui: boolean,
@@ -29,6 +39,7 @@ class BallsMongooseRepository implements BallsRepository {
         },
         { returnDocument: "after" },
       );
+
       if (!response) {
         throw new Error();
       }
