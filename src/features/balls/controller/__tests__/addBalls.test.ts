@@ -25,8 +25,9 @@ describe("Given a BallController with a CreateBall method", () => {
     const ballsRepository: BallsMongooseRepository = {
       getBalls: jest.fn(),
       deleteBall: jest.fn(),
-      modifyIsTengui: jest.fn(),
       addBall: jest.fn().mockResolvedValue({ mockBall }),
+      getBallById: jest.fn(),
+      modifyIsTengui: jest.fn(),
     };
 
     test("Then it should call its status method with the status code 201", async () => {
@@ -59,8 +60,9 @@ describe("Given a BallController with a CreateBall method", () => {
       const ballsRepository: BallsMongooseRepository = {
         getBalls: jest.fn(),
         deleteBall: jest.fn(),
-        modifyIsTengui: jest.fn(),
         addBall: jest.fn().mockRejectedValue(undefined),
+        getBallById: jest.fn(),
+        modifyIsTengui: jest.fn(),
       };
       const expectedMessage = "Error adding a new ball";
       const expectedStatusCode = 400;

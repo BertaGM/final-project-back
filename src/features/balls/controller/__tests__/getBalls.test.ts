@@ -16,6 +16,7 @@ describe("Given a BallsController getBalls method", () => {
       getBalls: jest.fn().mockResolvedValue(balls),
       deleteBall: jest.fn().mockResolvedValue(balls),
       addBall: jest.fn(),
+      getBallById: jest.fn(),
       modifyIsTengui: jest.fn().mockResolvedValue(balls),
     };
 
