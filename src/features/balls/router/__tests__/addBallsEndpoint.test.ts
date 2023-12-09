@@ -5,16 +5,17 @@ import type { BallsStructure } from "../../types";
 import { server } from "../../../../setupTest";
 
 describe("Given a POST /balls/create endpoint", () => {
-  const path = "/balls/create";
+  const path = "/balls/add";
 
   describe("When it receives a request with a 'Harry Potter crew' ball", () => {
     test("Then it should respond with status 201 and the 'Harry Potter crew' ball", async () => {
       const expectedStatusCode = 201;
       const expectedBallName = "Harry Potter crew";
+      const mockData = mockBall;
 
       const response = await request(app)
         .post(path)
-        .send(mockBall)
+        .send(mockData)
         .expect(expectedStatusCode);
 
       const responseBody = response.body as { ball: BallsStructure };
