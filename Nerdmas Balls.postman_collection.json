@@ -37,6 +37,22 @@
         "header": []
       },
       "response": []
+    },
+    {
+      "name": "add",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "getById",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
     }
   ]
 }

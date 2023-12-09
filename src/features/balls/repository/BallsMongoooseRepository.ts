@@ -27,6 +27,16 @@ class BallsMongooseRepository implements BallsRepository {
     }
   }
 
+  public async getBallById(_id: string): Promise<BallsStructure> {
+    try {
+      const ball = await Balls.findById(_id);
+
+      return ball!;
+    } catch (error) {
+      throw new Error("Error finding ball" + (error as Error).message);
+    }
+  }
+
   public async modifyIsTengui(
     ballId: string,
     isTengui: boolean,
@@ -40,11 +50,7 @@ class BallsMongooseRepository implements BallsRepository {
         { returnDocument: "after" },
       );
 
-      if (!response) {
-        throw new Error();
-      }
-
-      return response;
+      return response!;
     } catch (error) {
       throw new Error("Error deleting this ball" + (error as Error).message);
     }

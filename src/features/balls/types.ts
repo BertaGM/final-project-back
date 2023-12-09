@@ -26,3 +26,5 @@ export type BallRequestWithoutId = Request<
   Record<string, unknown>,
   BallStructureWithoutId
 >;
+
+export type BallRequestById = Request<{ ballId: string }>;

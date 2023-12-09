@@ -11,6 +11,7 @@ const ballsController = new BallsController(ballsMongooseRepository);
 ballsRouter.get("/", ballsController.getBalls);
 ballsRouter.delete("/:ballId", ballsController.deleteBall);
 ballsRouter.post("/add", ballValidation, ballsController.addBall);
+ballsRouter.get("/:ballId", ballsController.getBallById);
 ballsRouter.patch("/", ballsController.modifyIsTengui);
 
 export default ballsRouter;

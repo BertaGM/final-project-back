@@ -47,6 +47,24 @@ class BallsController {
     }
   };
 
+  public getBallById = async (
+    req: Request<{ ballId: string }>,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    try {
+      const { ballId } = req.params;
+
+      const ball = await this.ballsRepository.getBallById(ballId);
+
+      res.status(200).json({ ball });
+    } catch {
+      const customError = new CustomError("Couldn't find the ball", 400);
+
+      next(customError);
+    }
+  };
+
   public modifyIsTengui = async (
     req: UpdateBallRequest,
     res: Response,
