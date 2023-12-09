@@ -4,7 +4,7 @@ import type { BallsRepository } from "./types.js";
 
 class BallsMongooseRepository implements BallsRepository {
   public async getBalls(): Promise<BallsStructure[]> {
-    const balls = await Balls.find().limit(10);
+    const balls = await Balls.find().limit(10).sort({ _id: -1 });
 
     return balls;
   }

@@ -19,10 +19,12 @@ describe("Given a GET method with a '/balls' endpoint", () => {
         balls: BallsStructure[];
       };
 
+      const invertBallsMock = mockBalls.reverse();
+
       responseBody.balls.forEach((balls, ballsPosition) => {
         expect(balls).toHaveProperty(
           "ballName",
-          mockBalls[ballsPosition].ballName,
+          invertBallsMock[ballsPosition].ballName,
         );
       });
     });

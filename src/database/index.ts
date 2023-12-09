@@ -3,7 +3,7 @@ import debugCreator from "debug";
 import chalk from "chalk";
 import mongoose from "mongoose";
 
-const debug = debugCreator("src:nerdmas:database:index");
+const debug = debugCreator("src:balls:database:index");
 
 const connectToDatabase = async (mongoUrl: string) => {
   try {
