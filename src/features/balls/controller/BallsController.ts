@@ -1,7 +1,11 @@
 import type { Request, Response, NextFunction } from "express";
 import type { BallsRepository } from "../repository/types";
 import CustomError from "../../../server/CustomError/CustomError.js";
-import { type UpdateBallRequest, type BallRequestWithoutId } from "../types";
+import {
+  type UpdateBallRequest,
+  type BallRequestWithoutId,
+  type BallRequestWithId,
+} from "../types";
 
 class BallsController {
   constructor(private readonly ballsRepository: BallsRepository) {}
@@ -60,6 +64,25 @@ class BallsController {
       res.status(200).json({ ball });
     } catch {
       const customError = new CustomError("Couldn't find the ball", 400);
+
+      next(customError);
+    }
+  };
+
+  public modifyBall = async (
+    req: BallRequestWithId,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    try {
+      const ball = req.body;
+      const { ballId } = req.params;
+
+      const modifiedBall = await this.ballsRepository.modifyBall(ballId, ball);
+
+      res.status(200).json({ ball: modifiedBall });
+    } catch {
+      const customError = new CustomError("Couldn't modify the ball", 400);
 
       next(customError);
     }

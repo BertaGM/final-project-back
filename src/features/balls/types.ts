@@ -27,4 +27,10 @@ export type BallRequestWithoutId = Request<
   BallStructureWithoutId
 >;
 
+export type BallRequestWithId = Request<
+  { ballId: string },
+  Record<string, unknown>,
+  BallsStructure
+>;
+
 export type BallRequestById = Request<{ ballId: string }>;
