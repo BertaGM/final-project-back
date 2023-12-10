@@ -1,6 +1,6 @@
 import type { NextFunction, Response } from "express";
 import { type BallRequestWithoutId } from "../../types";
-import type BallsMongooseRepository from "../../repository/BallsMongoooseRepository";
+import type BallsMongooseRepository from "../../repository/BallsMongooseRepository";
 import BallsController from "../BallsController";
 import type CustomError from "../../../../server/CustomError/CustomError";
 import mockBall from "../../mocks/mockBall";
@@ -27,6 +27,7 @@ describe("Given a BallController with a CreateBall method", () => {
       deleteBall: jest.fn(),
       addBall: jest.fn().mockResolvedValue({ mockBall }),
       getBallById: jest.fn(),
+      modifyBall: jest.fn(),
       modifyIsTengui: jest.fn(),
     };
 
@@ -62,6 +63,7 @@ describe("Given a BallController with a CreateBall method", () => {
         deleteBall: jest.fn(),
         addBall: jest.fn().mockRejectedValue(undefined),
         getBallById: jest.fn(),
+        modifyBall: jest.fn(),
         modifyIsTengui: jest.fn(),
       };
       const expectedMessage = "Error adding a new ball";

@@ -1,8 +1,8 @@
-import { type Request, type Response, type NextFunction } from "express";
+import { type Response, type NextFunction } from "express";
 import mockBall from "../../mocks/mockBall";
 import BallsController from "../BallsController";
 import type { BallRequestById } from "../../types";
-import type BallsMongooseRepository from "../../repository/BallsMongoooseRepository";
+import type BallsMongooseRepository from "../../repository/BallsMongooseRepository";
 import type CustomError from "../../../../server/CustomError/CustomError";
 
 beforeEach(() => {
@@ -10,7 +10,7 @@ beforeEach(() => {
 });
 
 describe("Given a BallsController getBallById method", () => {
-  const req: Pick<Request, "params"> = {
+  const req: Pick<BallRequestById, "params"> = {
     params: { ballId: "2512" },
   };
 
