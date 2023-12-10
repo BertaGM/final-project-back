@@ -37,6 +37,23 @@ class BallsMongooseRepository implements BallsRepository {
     }
   }
 
+  public async modifyBall(
+    id: string,
+    ball: BallsStructure,
+  ): Promise<BallsStructure | undefined> {
+    try {
+      const modifiedBall = await Balls.findByIdAndUpdate(
+        id,
+        { ...ball },
+        { returnDocument: "after" },
+      );
+
+      return modifiedBall!;
+    } catch (error) {
+      throw new Error("Error modifying the ball" + (error as Error).message);
+    }
+  }
+
   public async modifyIsTengui(
     ballId: string,
     isTengui: boolean,
